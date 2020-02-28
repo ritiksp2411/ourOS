@@ -32,3 +32,5 @@ mykernel.iso: mykernel.bin
 	echo '}'                                 >> iso/boot/grub/grub.cfg
 	grub-mkrescue --output=mykernel.iso iso
 	rm -rf iso
+
+
