@@ -23,12 +23,12 @@ make install - to install the executable file
 # To boot..
 
 Install VirtualBox and create a new VM with 
-Name: My Operating System __
-Folder: (usually selecting the default folder specified works!) __
-Type: Other __
-Version: Other/Unknown1__
+Name: My Operating System <br />
+Folder: (usually selecting the default folder specified works!) <br />
+Type: Other <br />
+Version: Other/Unknown1
 <br />
 <br />
-RAM selected: default__
-Don't add virtual hard-disk__
+RAM selected: default<br />
+Don't add virtual hard-disk<br />
 On powering on your VM load mykernel.iso 
