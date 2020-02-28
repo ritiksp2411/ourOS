@@ -19,3 +19,16 @@ make mykernel.bin
 make install
 ```
 make install - to install the executable file
+
+# To boot..
+
+Install VirtualBox and create a new VM with 
+Name: My Operating System __
+Folder: (usually selecting the default folder specified works!) __
+Type: Other __
+Version: Other/Unknown1__
+<br />
+<br />
+RAM selected: default__
+Don't add virtual hard-disk__
+On powering on your VM load mykernel.iso 
