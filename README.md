@@ -26,7 +26,7 @@ Install VirtualBox and create a new VM with
 Name: My Operating System <br />
 Folder: (usually selecting the default folder specified works!) <br />
 Type: Other <br />
-Version: Other/Unknown1
+Version: Other/Unknown
 <br />
 <br />
 RAM selected: default<br />
