@@ -4,21 +4,21 @@ GPPPARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-excep
 ASPARAMS = --32
 LDPARAMS = -melf_i386
 
-objects = loader.o kernel.o
+objects = loader.o gdt.o kernel.o
 
-%.o: %.cpp
+%.o: %.cpp	# instructions to convert .cpp files to .o file
 	g++ $(GPPPARAMS) -o  $@ -c $<
 
-%.o: %.s
+%.o: %.s	# instructions to convert .s files to .o file
 	as $(ASPARAMS) -o $@ $<
 
-mykernel.bin: linker.ld $(objects)
+mykernel.bin: linker.ld $(objects)	# to generate .bin file from linker.ld file
 	ld $(LDPARAMS) -T $< -o $@ $(objects)
 
 install: mykernel.bin
 	sudo cp $< /boot/mykernel.bin
 
-mykernel.iso: mykernel.bin
+mykernel.iso: mykernel.bin		#creating .iso file
 	mkdir iso
 	mkdir iso/boot
 	mkdir iso/boot/grub
@@ -34,3 +34,10 @@ mykernel.iso: mykernel.bin
 	rm -rf iso
 
 
+run: mykernel.iso
+	(killall VirtualBox && sleep 1) || true
+	VirtualBox --startvm 'My Operating System' &
+
+.PHONY: clean	# removing all objects,.bin,.iso file
+clean:
+	rm -rf obj mykernel.bin mykernel.iso
