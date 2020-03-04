@@ -1,6 +1,8 @@
 #include "/home/shidhu/ourOS/gdt.h"
 #include "/home/shidhu/ourOS/types.h"
 #include "/home/shidhu/ourOS/interrupts.h"
+#include "keyboard.h"
+using namespace std;
 
 void print(char* str){              //we have to define our own printf function as there are no libraries yet
     static uint16_t* VideoMemory = (uint16_t*)0xb8000; //OS dynamically links the function call to the library
@@ -44,12 +46,13 @@ extern "C" void callConstructors(){         //to initialise objects
 
 extern "C" void kernelMain(void* multiboot_structure, uint32_t/*unsigned int magicnumber*/){ //g++ has a different naming convention
                                                                                    //hence while writing into .o file changes name
-    print("loaded successfully ");
-    print("waiting.... ");
-    print("...... ");    
+    print("loaded successfully\n");
+    print("waiting....\n");
+    print("......\n");    
     GlobalDescriptorTable gdt;                                            //to prevent that extern is used
     InterruptManager interrupts(&gdt);
 
+    KeyboardDriver keyboard(&interrupts);
 
     interrupts.Activate();
     while(1);

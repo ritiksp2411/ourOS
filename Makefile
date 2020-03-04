@@ -4,7 +4,7 @@ GPPPARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-excep
 ASPARAMS = --32
 LDPARAMS = -melf_i386
 
-objects = loader.o gdt.o interrupts.o port.o interruptstubs.o kernel.o
+objects = loader.o gdt.o interrupts.o port.o interruptstubs.o keyboard.o kernel.o
 
 %.o: %.cpp	# instructions to convert .cpp files to .o file
 	g++ $(GPPPARAMS) -o  $@ -c $<

@@ -1,4 +1,7 @@
 #include "/home/shidhu/ourOS/gdt.h"
+
+using namespace std;
+
 GlobalDescriptorTable::GlobalDescriptorTable()
     : nullSegmentSelector(0, 0, 0),
         unusedSegmentSelector(0, 0, 0),

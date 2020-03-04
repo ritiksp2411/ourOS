@@ -1,5 +1,7 @@
 #include "port.h"
 
+using namespace std;
+
 Port::Port(uint16_t portnumber)
 {
     this->portnumber = portnumber;
