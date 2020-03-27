@@ -1,8 +1,8 @@
-.set MAGIC, 0x1badb002          #used to tell the boot loader that kernel is being loaded (called matric no. which has to be there in kernel.bin file)
+.set MAGIC, 0x1badb002          #used to tell the boot loader that kernel is being loaded (called magicnumber which has to be there in kernel.bin file)
 .set FLAGS, (1<<0 | 1<<1)
 .set CHECKSUM, -(MAGIC + FLAGS)
 
-.section .multiboot
+.section .multiboot   #To put the above variables in loader file
     .long MAGIC
     .long FLAGS
     .long CHECKSUM
