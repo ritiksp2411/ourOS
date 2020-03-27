@@ -1,4 +1,4 @@
-.set MAGIC, 0x1badb002          #used to tell the boot loader that kernel is being loaded
+.set MAGIC, 0x1badb002          #used to tell the boot loader that kernel is being loaded (called matric no. which has to be there in kernel.bin file)
 .set FLAGS, (1<<0 | 1<<1)
 .set CHECKSUM, -(MAGIC + FLAGS)
 
